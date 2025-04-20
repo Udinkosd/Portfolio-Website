@@ -4,6 +4,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
@@ -22,8 +23,46 @@ body {
   min-height: 100vh;
 }
 
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100;
+  z-index: -1; 
+  color: #f30000;
+}
+
+/* #landing {
+  background-color: #ff6347;
+} */
+
+#about {
+  background: conic-gradient(
+    from -25deg,
+    #000000 10%,
+    #222A3A 29%,
+    #000000 44%,
+    #222A3A 67%,
+    #000000 85%,
+    #15171A 100%
+  );
+}
+
+
+#works {
+  background-color: #000000;
+}
+
 
 /* Utility Classes */
+
+
+section {
+  scroll-snap-align: start;
+  height: 100vh;
+}
+
 .no-bullets {
   list-style: none;
   padding: 0;
@@ -95,20 +134,57 @@ h1 {
   font-weight: 500;
 }
 
+.paragraph-two {
+  font-size: clamp(0.75rem, 1vw, 1rem);
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  font-variant: all-small-caps;
+}
+
+.transparent-word {
+  color: rgba(255, 255, 255, 0.623);
+}
+
 .right-column {
   max-width: clamp(320px, 43vw, 720px);
   margin-left: auto;
 }
 
 /* Navbar */
+#designing-header {
+  position: relative;
+  padding: 1rem 2rem;
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1rem 2rem;
+}
+
+#navbar ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+#navbar ul li a.active {
+  color: #ff0000; 
+  background-color: transparent;
+}
+
+#navbar ul li a:hover {
+  color: #000000; 
+}
+
 .navbar {
   padding: 0vh 0vw;
 }
 
-.nav-link {
-  font-size: 1.0rem;
+.container-fluid {
+  padding: 3vh 5vw;
 }
 
-.container-fluid {
-  padding: 5vh 5vw;
-}
+/* Breakpoints */
