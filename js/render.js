@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Use GLTFLoader to load the 3D model
   const loader = new THREE.GLTFLoader();
-  loader.setPath('/PraktekHTML%203/assets/'); // Adjusted path
+  loader.setPath('../assets/'); // Adjusted path
 
   loader.load(
     'scene.gltf', // Model file
