@@ -1,167 +1,114 @@
-/* Set the root font size explicitly */
-html {
-  font-size: 10px;
+/* Global Reset */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  background: conic-gradient(
+    from -25deg,
+    #000000 10%,
+    #222A3A 29%,
+    #000000 44%,
+    #222A3A 67%,
+    #000000 85%,
+    #15171A 100%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+
+/* Utility Classes */
+.no-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.container-padding {
+  padding-right: 10vw;
+}
+
+.h1-padding {
+  padding-right: 8.7vw;
+}
+
+.icon-btn {
+  background-color: rgba(255, 255, 255, 0.048);
+  border: 1px solid #fff;
+  border-radius: 0.4rem;
+  padding: 5px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.icon-btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 /* Typography */
 .inter-medium {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 1rem; 
-  letter-spacing: 0.5px; 
+  letter-spacing: 0.5px;
   font-style: normal;
 }
 
 .inter-bold-italic {
   font-family: 'Inter', sans-serif;
-  font-style: italic;
-  font-size: 1.2rem;
   font-weight: 700;
+  font-style: italic;
   letter-spacing: 1px;
 }
 
 .baskerville-italic {
   font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 1.5rem;
   letter-spacing: 1px;
+  font-style: italic;
 }
 
-/* Background */
-.content-container {
-  max-width: clamp(320px, 90%, 1920px); /* Responsive width: 320px to 1920px */
-  aspect-ratio: 1920 / 1080; /* Maintain the aspect ratio of 1920x1080 */
-  margin: auto; /* Center container */
-  padding: 0 2%; /* Add padding for smaller screens */
-  display: flex;
-  flex-direction: column; /* Ensure vertical stacking of content */
-  justify-content: center; /* Center content vertically */
-}
-
-body {
-  width: 100%;
-  min-height: 100vh;
-  margin: 0; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background: conic-gradient(
-      from -25deg,
-      #000000 10%,
-      #222A3A 29%,
-      #000000 44%,
-      #222A3A 67%,
-      #000000 85%,
-      #15171A 100%
-  );
-}
-
-/* Utility Modifier */
-
-.no-bullets {
-  list-style: none; 
-  padding: 0;      
-  margin: 0; 
-}
-
-nav .inter-medium {
-  font-size: 1.5rem;
-  letter-spacing: 0.2px;
-}
-
-blockquote.inter-medium {
-  font-size: 1.1rem;
-  letter-spacing: 0.8px;
-  line-height: 1.6;
-}
-
-.blockquote-compressed {
-  max-width: 60%;
-  margin-left: auto; 
-  text-align: right;
+h1 {
+  padding-top: 3rem;
+  line-height: 1.2;
+  text-align: left;
 }
 
 .concept-text {
-  font-size: clamp(2rem, 4vw, 4rem);
+  font-size: clamp(1.25rem, 2.6vw, 4rem);
 }
 
 .slap-text {
-  font-size: clamp(4rem, 4vw, 5rem);
+  font-size: clamp(2.5rem, 3.9vw, 6rem);
 }
 
-.mt-0 {
-  margin-top: 10%;
+.paragraph-one {
+  font-size: clamp(0.75rem, 1vw, 1rem);
+  font-weight: 500;
 }
 
-.blockquote-compressed {
-  max-width: 40%;
-  margin-left: auto; 
-  text-align: right; 
+.right-column {
+  max-width: clamp(320px, 43vw, 720px);
+  margin-left: auto;
 }
 
-.custom-navbar-spacing {
-  margin-top: 0; 
+/* Navbar */
+.navbar {
+  padding: 0vh 0vw;
 }
 
-.custom-content-spacing {
-  padding-top: 116px;
-}
-
-.custom-learn-spacing {
-  padding-top: 70px;
-}
-
-.mt-custom {
-  margin-top: 11rem;
-}
-
-.transparent-text {
-  color: rgba(255, 255, 255, 0.5);
+.nav-link {
+  font-size: 1.0rem;
 }
 
 .container-fluid {
-  margin-left: -50px;
-  margin-right: -50px;
-}
-/* Media Queries for Responsiveness */
-
-/* For screens up to 1366px-1600px (laptops and smaller desktops) */
-@media (max-width: 1600px) {
-  .content-container {
-    max-width: 1600px; /* Adjust for laptop screens */
-    padding: 0 4%; /* Add padding for smaller laptops */
-  }
-}
-
-@media (max-width: 1366px) {
-  .content-container {
-    max-width: 1366px; /* Adjust for laptop screens */
-    padding: 0 3%;
-    margin: 0 8% /* Add padding for smaller laptops */
-  }
-}
-
-/* For screens up to 1024px (tablets) */
-@media (max-width: 1024px) {
-  .content-container {
-    max-width: 1024px; /* Adjust for tablets */
-    padding: 0 3%; /* Add padding for tablets */
-  }
-}
-
-/* For screens up to 768px (phones and small tablets) */
-@media (max-width: 768px) {
-  .content-container {
-    max-width: 90%; /* Shrink width to fit smaller screens */
-    padding: 0 2%; /* Reduce padding */
-  }
-}
-
-/* For screens larger than 1920px (e.g., large desktops) */
-@media (min-width: 1920px) {
-  .content-container {
-    max-width: 1920px; /* Keep the ideal width for large screens */
-    padding: 0; /* Remove extra padding for larger screens */
-  }
+  padding: 5vh 5vw;
 }
