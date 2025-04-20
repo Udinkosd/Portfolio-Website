@@ -34,18 +34,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Use GLTFLoader to load the 3D model
   const loader = new THREE.GLTFLoader();
-  loader.setPath('/Portfolio-Website/assets/'); // Adjusted path
-
   loader.load(
-    'scene.gltf', // Model file
+    'https://cdn.jsdelivr.net/gh/Udinkosd/Portfolio-Website/assets/scene.gltf',
     (gltf) => {
-      // Access the loaded model
       const model = gltf.scene;
-
-      // Set the position and scale of the model
-      model.scale.set(2, 2, 2); // Scale down the model
+      model.scale.set(2, 2, 2);
       scene.add(model);
-
+    },
+    undefined,
+    (error) => {
+      console.error('Error loading model:', error);
+    }
+  );
       // Change the color of the model
       model.traverse((child) => {
         if (child.isMesh) {
