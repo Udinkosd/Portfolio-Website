@@ -16,20 +16,20 @@ document.addEventListener("DOMContentLoaded", () => {
     return; // Exit the script if the element does not exist
   }
 
-  // Set a scene background color
-  scene.background = 0xffffff; // Light blue background
+  // Set a scene background color (optional)
+  scene.background = 0xffffff;
 
-  // Add Ambient Light (soft lighting)
-  const ambientLight = new THREE.AmbientLight(0xfffffff, 15); // Increase intensity to 1.5
+  // Add Ambient Light
+  const ambientLight = new THREE.AmbientLight(0xfffffff, 1.5);
   scene.add(ambientLight);
 
-  // Add Directional Light (strong directional lighting)
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 2); // Increase intensity to 2
-  directionalLight.position.set(20, 20, 10); // Position the light
+  // Add Directional Light
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+  directionalLight.position.set(20, 20, 10);
   scene.add(directionalLight);
 
-  // Add Hemisphere Light (natural sky effect)
-  const hemisphereLight = new THREE.HemisphereLight(0xffffbb, 0xffdbb9 , 10); // Sky and ground light
+  // Add Hemisphere Light
+  const hemisphereLight = new THREE.HemisphereLight(0xffffbb, 0xffdbb9, 10);
   scene.add(hemisphereLight);
 
   // Use GLTFLoader to load the 3D model
@@ -40,31 +40,25 @@ document.addEventListener("DOMContentLoaded", () => {
       const model = gltf.scene;
       model.scale.set(2, 2, 2);
       scene.add(model);
+
+      // Change the color of the model
+      model.traverse((child) => {
+        if (child.isMesh) {
+          child.material.color.set(0xffe1c5);
+        }
+      });
+
+      // Animate the model
+      animateModel(model);
     },
     undefined,
     (error) => {
       console.error('Error loading model:', error);
     }
   );
-      // Change the color of the model
-      model.traverse((child) => {
-        if (child.isMesh) {
-          child.material.color.set(0xffe1c5 ); // Set the color
-          // child.material = new THREE.MeshStandardMaterial({ color: 0xffdc6d }); // Optional: Use Standard Material
-        }
-      });
-
-      // Optional: Animate the model
-      animateModel(model);
-    },
-    undefined,
-    (error) => {
-      console.error('An error occurred while loading the .gltf file:', error);
-    }
-  );
 
   // Set the camera position
-  camera.position.set(0, 0, 5); // Adjust the camera position
+  camera.position.set(0, 0, 5);
 
   // Animate the scene
   function animate() {
@@ -77,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function animateModel(model) {
     function rotate() {
       requestAnimationFrame(rotate);
-      model.rotation.y += 0.002; // Rotate the model on the Y-axis
+      model.rotation.y += 0.002;
     }
     rotate();
   }
